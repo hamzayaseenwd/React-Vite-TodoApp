@@ -7,6 +7,26 @@ import Input from './components/Input'
 function App() {
   const [count, setCount] = useState(0)
 
+
+  const [user_data, setUserData] = useState({
+    // username:'',
+    // email:'',
+    // password:''
+  });
+
+
+  const userDataHandle = (val, key) => {
+    // console.log("val:", val);
+    // console.log("key:", key);
+    const obj = { ...user_data };
+
+    obj[key] = val;
+
+    setUserData(obj);
+  };
+
+
+
   return (
     <>
       <div>
@@ -18,12 +38,12 @@ function App() {
     id="Title"
     placeholder="Title"
     type="text"
-    onChangeHandle={{}} />
+    onChangeHandle={userDataHandle} />
   <Input
     id="Description"
     placeholder="Description"
     type="text"
-    onChangeHandle={{}} />
+    onChangeHandle={userDataHandle} />
 
   <button className="btn btn-outline mt-5 m-2">Add </button>
   <button className="btn btn-outline  mt-5 m-2">Delete All </button>
